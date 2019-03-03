@@ -17,7 +17,7 @@
                         <div class="col-md-12">
                             <h2><b>
                             <div class="animate fadeIn">
-                            Auction Items</div></b></h2>
+                            YOUR COLLECTIONS!!!</div></b></h2>
                             
                             <div class="portfolio-filter-container margin-top-20">
                                 <ul class="portfolio-filter">
@@ -62,9 +62,23 @@
                     <div class="row">
                         <div class="col-md-12 portfolio-group no-padding">
                             
+<script>
+                            var today = new Date();
+                            var dd = today.getDate();
+                            var mm = today.getMonth()+1; //January is 0!
+                            var yyyy = today.getFullYear();
+                             if(dd<10){
+                                    dd='0'+dd
+                                } 
+                                if(mm<10){
+                                    mm='0'+mm
+                                } 
 
-                     
-                           <?php include('assets/auction_list.inc.php');?>
+                            today = yyyy+'-'+mm+'-'+dd+1;
+                            document.getElementById("datefield").setAttribute("max", today);
+                        </script>
+                         
+                     <?php include('assets/won_auction.inc.php');?>
 
                         </div>
                     </div>
