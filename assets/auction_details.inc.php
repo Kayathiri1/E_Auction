@@ -1,4 +1,4 @@
-<?php
+ <?php
                             $id=$_GET['auction_id'];
                                 $db = mysqli_connect('localhost', 'root', '', 'auction');
                                 $query="SELECT * from auction WHERE auction_id='$id'";
