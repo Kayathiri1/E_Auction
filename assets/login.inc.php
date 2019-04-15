@@ -11,7 +11,7 @@ $db = mysqli_connect('localhost', 'root', '', 'auction');
 if (isset($_POST['login'])) {
     $email = mysqli_real_escape_string($db, $_POST['email']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
-    $query = "SELECT type FROM users WHERE email='$email' AND password='$password';";
+    $query = "SELECT type,hash_value FROM users WHERE email='$email' AND password='$password';";
     $result=mysqli_query($db, $query);
     $applicationArray=array();
     while($row=mysqli_fetch_assoc($result)){
@@ -19,9 +19,11 @@ if (isset($_POST['login'])) {
     }
 foreach ($applicationArray as $application) {
     $role=$application['type'];
+    $hash_value=$application['hash_value'];
 }
     $_SESSION['type']=$role;
     $_SESSION['email']=$email;
+    $_SESSION['hash_value']=$hash_value;
 
     if(mysqli_num_rows($result)==1){
         

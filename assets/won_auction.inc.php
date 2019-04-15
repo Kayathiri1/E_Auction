@@ -29,7 +29,7 @@
                                         $ip=$row['start_value'];
                                         echo "<div class=\"col-md-4 portfolio-item margin-bottom-40 $type\">";
                                          echo   '<div>';
-                                                echo "<a href=\"auction_details.php?auction_id=$auction_id\">";
+                                                echo "<a href=\"wonauction_details.php?auction_id=$auction_id\">";
                                                     echo '<figure>
                                                             <img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" height="200px" width="200px"/>                                             
                                                             <figcaption>

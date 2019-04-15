@@ -7,6 +7,7 @@ $phone="";
 $type="";
 $password="";
 $repassword="";
+$hash_value="";
 
 $db = mysqli_connect('localhost', 'root', '', 'auction');
 if (isset($_POST['register'])) {
@@ -17,8 +18,9 @@ if (isset($_POST['register'])) {
     $type = mysqli_real_escape_string($db, $_POST['type']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
     $repassword = mysqli_real_escape_string($db, $_POST['repassword']);
-    $query = "INSERT INTO users (firstname, lastname,  email, phone ,type, password)
-            VALUES('$firstname','$lastname', '$email' ,'$phone', '$type' ,'$password')";
+    $hash_value=md5($email);
+    $query = "INSERT INTO users (firstname, lastname,  email, phone ,type, password , hash_value)
+            VALUES('$firstname','$lastname', '$email' ,'$phone', '$type' ,'$password' , '$hash_value')";
        mysqli_query($db, $query);
     header("location: index.php?created");
 }
