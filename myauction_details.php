@@ -47,6 +47,17 @@
                             
                         }echo '</table>';
                         }
+                        $que="SELECT * from transaction WHERE auction_id='$id'";
+                        $res1=mysqli_query($db,$que);
+                        if(mysqli_num_rows($res1)==0){
+                            echo "<br><br><b>Transaction pending";
+                        }
+                        else{
+                            $status=1;
+                        }
+
+
+
                         ?>
 
 

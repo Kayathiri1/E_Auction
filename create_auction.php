@@ -17,18 +17,14 @@
     document.getElementById("datefield").setAttribute("max", today);
 </script>
 
-<!-- === BEGIN HEADER === -->
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!-->
 <html lang="en">
     <!--<![endif]-->
     <head>
         <!-- Title -->
         <title>Register|E-Auction</title>
-<?php include 'assets/acc_header.php';?>
-<?php include 'assets/create_auction.inc.php';?>
+            <?php include 'assets/acc_header.php';?>
+            <?php include 'assets/create_auction.inc.php';?>
             <!-- === BEGIN CONTENT === -->
             <div id="content">
                 <div class="container background-white">
@@ -52,10 +48,9 @@
                             document.getElementById("datefield").setAttribute("max", today);
                         </script>
                     
-                   <form class="signup-page" method="POST" enctype="multipart/form-data">
+                            <form class="signup-page" method="POST" enctype="multipart/form-data">
                                 <div class="signup-header">
-                                    <h2>Create a new auction</h2>
-                                    
+                                    <h2>Create a new auction</h2>  
                                 </div>
 
                                 <label>Name of the item

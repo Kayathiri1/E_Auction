@@ -1,10 +1,7 @@
 <!-- === BEGIN HEADER === -->
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!-->
+
 <html lang="en">
-    <!--<![endif]-->
     <head>
         <style>
     table,th,td{
@@ -41,9 +38,6 @@
     </head>
     <body>
         <div id="body-bg">
-            
-          
-            
             <div id="content">
                 <div class="container background-white">
                     <div class="row margin-vert-30">
