@@ -25,11 +25,24 @@
                                         while($row=mysqli_fetch_array($result)){
                                         $name=$row['name'];
                                         $auction_id=$row['auction_id'];
+                                        //check whether the transaction done or not
+                                        $que="SELECT * from transaction WHERE auction_id='$auction_id'";
+                                        $res1=mysqli_query($db,$que);
+                                        if(mysqli_num_rows($res1)==0){
+                                            $status=0;
+                                        }
+                                        else{
+                                            $status=1;
+                                        }
+
+
+
                                         $type=$row['type'];
                                         $ip=$row['start_value'];
                                         echo "<div class=\"col-md-4 portfolio-item margin-bottom-40 $type\">";
                                          echo   '<div>';
-                                                echo "<a href=\"wonauction_details.php?auction_id=$auction_id\">";
+                                                if ($status==0){
+                                                echo "<a href=\"wonauction_details.php?auction_id=$auction_id\">";}
                                                     echo '<figure>
                                                             <img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" height="200px" width="200px"/>                                             
                                                             <figcaption>
@@ -37,7 +50,8 @@
                                                             echo $name;
                                                             echo '</h3><span>';
                                                             echo "You won for : Rs ",$bid;
-                                                            echo '<br> Click to view more details';
+                                                            if ($status==0){ echo '<br> Click to make transaction';}
+                                                            else{echo '<br> Transaction done';}
                                                             echo '</span>
                                                         </figcaption>
                                                     </figure>

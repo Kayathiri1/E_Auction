@@ -19,11 +19,9 @@ if (isset($_POST['login'])) {
     }
 foreach ($applicationArray as $application) {
     $role=$application['type'];
-    $hash_value=$application['hash_value'];
 }
     $_SESSION['type']=$role;
     $_SESSION['email']=$email;
-    $_SESSION['hash_value']=$hash_value;
 
     if(mysqli_num_rows($result)==1){
         

@@ -20,6 +20,34 @@ if (!isset($_SESSION['email'])) {
         <link rel="stylesheet" href="assets/css/custom.css" rel="stylesheet">
         <!-- Google Fonts-->
         <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">
+        <script src="web3.js"></script>
+<?php
+
+$email=$_SESSION['email'];
+$db = mysqli_connect('localhost', 'root', '', 'auction');
+$que= "SELECT account_id FROM ganache_mapping where email='$email'";
+$result=mysqli_query($db, $que);
+$applicationArray=array();
+    while($row=mysqli_fetch_assoc($result)){
+        $applicationArray[]=$row;
+    }
+    foreach ($applicationArray as $application) {
+        $id=$application['account_id'];
+
+    }
+    $_SESSION['wallet_id']=$id;
+    
+?>
+
+<script>
+
+var Web3 = require('web3');
+var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+var id= <?php echo $id; ?>;
+var account=web3.eth.accounts[id];
+var balance=web3.fromWei(web3.eth.getBalance(web3.eth.accounts[id]));
+</script>
+
     </head>
     <body>
         <div id="body-bg">
@@ -109,6 +137,23 @@ if (!isset($_SESSION['email'])) {
 
                                             
                                         </ul>
+                                    </li>
+                                    <li>
+                                        <span class="fa-th">
+                                        <a href="wallet.php"><p id="demo"></p></a>
+
+                                        <script>
+                                        document.getElementById("demo").innerHTML = account;
+                                        </script>
+                                        </span>
+                                    <ul>
+                                        <li class="parent">
+                                            <span>Balance in ether<p id="bal"></p></span>
+                                            <script>
+                                            document.getElementById("bal").innerHTML = balance;
+                                            </script>
+                                        </li>
+                                    </ul>
                                     </li>
 
                                     

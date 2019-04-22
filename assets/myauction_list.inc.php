@@ -21,9 +21,18 @@
                             <td>
                             <img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" height="200px" width="200px"/> ';
                             $curdate=date('Y-m-d');
-
+                            $que="SELECT * from transaction WHERE auction_id='$auction_id'";
+                            $res1=mysqli_query($db,$que);
+                               
                             if($cd<$curdate){
                                 echo "<blink><b><font color=\"red\">EXPIRED!!!!!!</font></b></blink>";
+                                if(mysqli_num_rows($res1)==1){
+                                    echo "<blink><b><font color=\"green\"><br>Transaction done</font></b></blink>";
+
+                                }else{
+                                    echo "<blink><b><font color=\"green\"><br>Transaction pending</font></b></blink>"; 
+                                }
+
                             }else{
                                 echo "<blink><b><font color=\"green\">AVAILABLE!!!!!!</font></b></blink>";;
                             }
